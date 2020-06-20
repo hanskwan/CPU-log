@@ -30,7 +30,9 @@ else:
 
 # Main log program 
 df = pd.DataFrame()
-for i in range(3):
+mins = 20 # how long for the log to record in minutes
+runmins = mins*6
+for i in range(mins): 
     dt = datetime.today()
     date1 = dt.strftime("%Y-%m-%d")
     time1 = dt.strftime("%H:%M:%S")
@@ -46,7 +48,7 @@ for i in range(3):
          "Byte_sent":[en0[0]],
          "Byte_received": [en0[1]]})
     df = df.append(df1)
-    time.sleep(2)
+    time.sleep(10)
 
 df.to_excel("CPU_log " + str(datetime0) +".xlsx")
 
